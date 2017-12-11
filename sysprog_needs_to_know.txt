@@ -1,6 +1,8 @@
 
 WHAT A SYSTEM PROGRAMMER NEEDS TO KNOW
 
+(Notes for oneself and the addendum for THE C++ CODE REVIEWER NOTES https://github.com/kuzminrobin/first_step_on_github/blob/master/cpp_code_reviewer_notes.txt)
+
 Contents.
 =========
 [VLA] Variable Length Array.
@@ -70,11 +72,18 @@ Terms
     System Programming
 Non-lang Specific
   const
+  When to use asserts (see also Before Writing Asserts)
 C++
   Logging
     Alexandrescu article.
   Before Writing Singleton Design Pattern
   Before Writing Smart Pointers
+  Before Writing Asserts
+  Type-Safe Programming
+    Jonathan Muller
+    Non-Ignorable Return Value
+  New Features in a Specific Edition of the C++ Standard
+    Anthony Calandra
 Other Langs
   Advantages of D over C++
       How Nested Functions Can Help To Avoid `goto`
@@ -88,5 +97,9 @@ How to Accelerate
     ccache
     Building on a RAM Drive
     SSD Drive
-    
+
+People
+    Where a Person Known in System Programming World Can Be Met
+        Walter Bright (the designer of the D programming language)
+        
 Chronological List of System Programming Books
