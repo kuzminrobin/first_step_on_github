@@ -1,0 +1,59 @@
+
+WHAT A SYSTEM PROGRAMMER NEEDS TO KNOW ABOUT
+(OR CODE-REVIEWER NOTES)
+
+Contents.
+=========
+[VLA] Variable Length Array.
+
+
+[VLA]
+What a system programmer needs to know about 
+Variable Length Array.
+=======================
+Conclusion: 
+-----------
+Variable Length Array is a C language feature (starting with C99) but not a C++ language feature (as of C++14).
+
+What the Variable Length Array is.
+----------------------------------
+It is an array whose length is a run-time value. E.g.
+    void func(char *pc)
+    {
+       char arr[strlen(pc)]; // The length of `arr` is a run-time value.
+    }
+
+Recommendations:
+----------------
+Consider placing the code (using the Variable Length Array) in the .C files. E.g.
+VLA_code.h
+    void func(char *pc)
+
+VLA_code.c
+    void func(char *pc)
+    {
+       char arr[strlen(pc)]; // The length of `arr` is a run-time value.
+       . . .
+    }
+
+VLA_user.cpp
+    extern "C" {            // Use C language linkage in C++ code.
+    #include "VLA_code.h"
+    }
+    . . .
+    func("Hello, World!");
+    
+What the Variable Length Array is, C99 citation (6.7.5.2 Array declarators, paragraph 4): 
+If the size is an integer constant expression and the element type has a known constant size, the array type is not a variable length array type; otherwise, the array type is a variable length array type.
+
+Compiler warnings/errors (https://godbolt.org):
+  Comipler options: -Wextra -pedantic -std=c++03
+    [ARM gcc 4.6.4 (linux) #1] warning: ISO C++ forbids variable length array 'array' [-Wvla].
+    [x86-64 clang 5.0.0 #1] warning: variable length arrays are a C99 feature [-Wvla-extension].
+  No compiler options:
+    [x86 MSVC 19 2017 RTW #1] error C2131: expression did not evaluate to a constant
+
+Standard Provisions:
+C99 (ISO/IEC 9899:1999 (E)): Search for "variable length array", "variable-length array", "VLA".
+C++03 (ISO/IEC 14882:2003(E)): ?
+
