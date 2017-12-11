@@ -1,0 +1,24 @@
+THE C++ CODE REVIEWER NOTES
+(or C++ Code Flaws Frequently Found During Code Reviews)
+
+CONTENTS
+========
+
+TODO:
+====
+Primary and Critical
+  Ref to a stack-allocated var is passed to another thread
+  Redundant explicit operator=()
+  Forgot to call a parent class func (Wrong args in copy Ctor, isEqual(), hashCode(), toStream())
+  Ignored Return Value
+  Risks of Empty Destructors
+  The reinterpret_cast is not recommended.
+Optimizations and Won't Harm
+  Using the Copy-And-Swap idiom for non-resource classes is a waste of performance
+  const
+  Advantages of bit numbers over the bit masks
+  Order of Header Inclusion
+  Compile-Time Inlining, Good and Bad Candidates
+  Destruct in Reverese Order of Construction
+  Encapsulation
+    Global enum to become member enum
