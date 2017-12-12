@@ -85,6 +85,9 @@ C++
   New Features in a Specific Edition of the C++ Standard
     Anthony Calandra
 Other Langs
+  Advantages of C over C++
+    [VLA]
+    Struct initializer (struct { char c; int i; } s = { .c = 2, .i = 1 };)
   Advantages of D over C++
       How Nested Functions Can Help To Avoid `goto`
   Advantages of Rust over C++
