@@ -1,4 +1,7 @@
-# first_step_on_github
+### first_step_on_github
+Ignore this repo, it is to be redesigned.
+
+---
 A repo of notes for oneself.
 
 * `cpp_code_reviewer_notes.txt`
